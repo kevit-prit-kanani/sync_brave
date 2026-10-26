@@ -1,0 +1,47 @@
+[project]
+name = "sync-brave"
+version = "0.1.0"
+description = "Export bookmarks from Chrome and merge them into Brave"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["chrome", "brave", "bookmarks", "browser", "cli"]
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "questionary>=2.0,<3.0",
+]
+
+[project.scripts]
+sync-brave = "sync_brave:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["sync_brave.py"]
+
+[tool.hatch.build.targets.sdist]
+only-include = [
+    "sync_brave.py",
+    "pyproject.toml",
+    "README.md",
+    "SETUP.md",
+    "LICENSE",
+]
